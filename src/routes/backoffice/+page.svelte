@@ -1,4 +1,11 @@
-<div class="min-h-screen">
+<script>
+    import LdapButton from "$lib/feature-button/LdapButton.svelte";
+    import RequestButton from "$lib/feature-button/RequestButton.svelte";
+    import VMButton from "$lib/feature-button/VMButton.svelte";
+    import NetBlockerButton from "$lib/feature-button/NetBlockerButton.svelte";
+</script>
+
+<div class="min-h-screen pt-5">
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 sm:py-12">
         <!-- Enhanced header with statistics -->
         <div class="text-center mb-12 relative overflow-hidden">
@@ -16,6 +23,10 @@
             <div class="p-8 sm:p-10">
                 <h2 class="text-2xl font-bold text-gray-800 mb-8 text-center">เครื่องมือจัดการ</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <LdapButton />
+                    <RequestButton />
+                    <VMButton />
+                    <NetBlockerButton />
                 </div>
             </div>
         </div>

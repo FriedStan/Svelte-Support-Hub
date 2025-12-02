@@ -39,10 +39,3 @@
         </p>
     </div>
 </header>
-<nav>
-    <a href="/backoffice">
-        <button type="button" title="nav" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-            Backoffice
-        </button>
-    </a>
-</nav>
