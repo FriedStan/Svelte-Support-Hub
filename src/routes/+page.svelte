@@ -1,3 +1,11 @@
+<script lang="ts">
+    import { Label, Select } from "flowbite-svelte";
+    import interfacesData from "$lib/interfaces_ex.json";
+    let srcIntf: string = "";
+
+    let interfaces = interfacesData.results;
+</script>
+
 <header
     class="bg-gradient-to-r from-blue-500 to-indigo-600 py-20 md:py-28 text-white relative overflow-hidden"
 >
@@ -39,3 +47,12 @@
         </p>
     </div>
 </header>
+
+<div>
+    <Label>
+        Select an option
+        <Select class="mt-2" items={interfaces.map((inf) => ({
+            value: inf.q_origin_key, name: inf.name
+        }))} bind:value={srcIntf} />
+    </Label>
+</div>

@@ -1,0 +1,47 @@
+{
+    "http_method": "GET",
+    "size": 6,
+    "matched_count": 6,
+    "next_idx": 5,
+    "revision": "cf27f142bcfefc3e871d7ae7c3e413c6",
+    "results": [
+        {
+            "name": "fortilink",
+            "q_origin_key": "fortilink",
+            "q_limited_permission": true
+        },
+        {
+            "name": "l2t.root",
+            "q_origin_key": "l2t.root",
+            "q_limited_permission": true
+        },
+        {
+            "name": "naf.root",
+            "q_origin_key": "naf.root",
+            "q_limited_permission": true
+        },
+        {
+            "name": "port1",
+            "q_origin_key": "port1",
+            "q_limited_permission": true
+        },
+        {
+            "name": "port2",
+            "q_origin_key": "port2",
+            "q_limited_permission": true
+        },
+        {
+            "name": "ssl.root",
+            "q_origin_key": "ssl.root",
+            "q_limited_permission": true
+        }
+    ],
+    "vdom": "root",
+    "path": "system",
+    "name": "interface",
+    "status": "success",
+    "http_status": 200,
+    "serial": "FGVM324W1TKLO3DZ",
+    "version": "v7.2.4",
+    "build": 1396
+}
