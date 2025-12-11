@@ -22,7 +22,7 @@
             class="inline-block mb-6 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full"
         >
             <span class="text-white flex items-center justify-center">
-                <i class="fas fa-headset mr-2"></i> ระบบคำขอบริการ IT Support ใหม่
+                <i class="fas fa-headset mr-2"></i> ระบบคำขอบริการ IT Support ใหม่กว่า
             </span>
         </div>
 
