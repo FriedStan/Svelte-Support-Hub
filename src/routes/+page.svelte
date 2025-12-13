@@ -1,15 +1,37 @@
 <script lang="ts">
     import { MultiSelect, Label, Tags, Card, Button} from "flowbite-svelte";
     import CDNCard from "../lib/CDNCard/CDNCard.svelte";
-    import { TrashBinSolid } from 'flowbite-svelte-icons';
     import ServicesData from "$lib/sevices_ex.json";
-    import web_filter from "$lib/web_filter_ex.json";
+    import policyData from "$lib/web_filter_ex.json";
     
-    let selectedService: string[] = [];
+    let selectedService: string[] = $state([]);
     let internalServices: { value: string; name: string }[] = ServicesData.services.map(
         (service) => ({ value: service, name: service })
     );
-    let allowedWebsites: string[] = [];
+    let allowedWebsites: string[] = $state([]);
+
+    let policyCards = $state(
+        policyData["web-filter"].map((service, sIndex) => ({
+            name: service.name,
+            items: service.domains.map((d, dIndex) => ({
+                id: `${sIndex}-${dIndex}`, // Unique ID
+                done: true,                // Default to Pass
+                description: d
+            }))
+        }))
+    );
+
+    function handleLogSelection() {
+        // Loop through all cards and find the "done" (Pass) items
+        const finalPolicy = policyCards.map(card => ({
+            serviceName: card.name,
+            allowedDomains: card.items
+                .filter(item => item.done) // Only take the ones in "Pass" column
+                .map(item => item.description)
+        }));
+
+        console.log("Current Active Policy:", JSON.stringify(finalPolicy, null, 2));
+    }
 </script>
 
 <header
@@ -67,11 +89,18 @@
         />
         <p class="text-xs text-gray-500 mt-1">Press Enter to add a website.</p>
         <strong>Websites to Allow:</strong> {JSON.stringify(selectedService.concat(allowedWebsites))}
+        <Button onclick={handleLogSelection} size="lg" color="blue" class="w-full mt-2">
+            Log Selected CDNs
+        </Button>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-7xl">
+
+    <div class="flex flex-wrap md:grid-cols-2 lg:grid-cols-4 gap-4 w-full max-w-7xl">
         
-        {#each Array(7) as _}
-            <CDNCard />
+        {#each policyCards as service}
+            <CDNCard 
+                title={service.name} 
+                bind:items={service.items} 
+            />
         {/each}
 
     </div>

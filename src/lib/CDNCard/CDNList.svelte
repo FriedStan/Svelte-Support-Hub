@@ -2,20 +2,20 @@
 	import { flip } from 'svelte/animate';
 	import { send, receive } from './transition.ts';
 
-	let { todos } = $props();
+	let { cdn } = $props();
 </script>
 
-<ul class="todos">
-	{#each todos as todo (todo.id)}
+<ul>
+	{#each cdn as item (item.id)}
 		<li
-			class={{ done: todo.done }}
-			in:receive={{ key: todo.id }}
-			out:send={{ key: todo.id }}
+			class={{ done: item.done }}
+			in:receive={{ key: item.id }}
+			out:send={{ key: item.id }}
 			animate:flip={{ duration: 200 }}
 		>
 			<label>
-				<input type="checkbox" bind:checked={todo.done}/>
-				<span class="ml-2">{todo.description}</span>
+				<input type="checkbox" bind:checked={item.done}/>
+				<span class="ml-2 break-all">{item.description}</span>
 			</label>
 		</li>
 	{/each}
