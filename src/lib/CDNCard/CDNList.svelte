@@ -20,7 +20,7 @@
 					class="peer-checked:border-green-800 cursor-pointer rounded-lg border-2 border-gray-200 bg-white p-2 font-normal text-gray-500 peer-checked:text-gray-600 hover:bg-gray-50 hover:text-gray-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:peer-checked:text-gray-300 dark:hover:bg-gray-700 dark:hover:text-gray-300"
 					>
 						<div class="text-md font-semibold">
-							<span class="text-lg break-all">{item.description}</span>
+							<span class="text-base break-all">{item.description}</span>
 						</div>
 					</div>
 				</Checkbox>
