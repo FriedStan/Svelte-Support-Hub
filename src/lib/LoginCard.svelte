@@ -27,6 +27,7 @@
     </div>
     <div class="grid gap-2">
      <Input class="h-12" id="password" type="password" placeholder="Password" required />
+     <Button><Eye/></Button>
     </div>
    </div>
   </form>
