@@ -1,7 +1,13 @@
 <script lang="ts">
     import { page } from "$app/stores";
     import { slide, fade } from "svelte/transition";
-    import { DarkMode } from "flowbite-svelte";
+
+    import SunIcon from "@lucide/svelte/icons/sun";
+    import MoonIcon from "@lucide/svelte/icons/moon";
+    
+    import { toggleMode } from "mode-watcher";
+    import { Button } from "$lib/components/ui/button/index.js";
+
     import itkmitlLogo from "$lib/assets/img/itkmitl.svg";
 
     // 1. State for Menus
@@ -64,7 +70,16 @@
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
-            <DarkMode/>
+
+            <Button onclick={toggleMode} variant="outline" size="icon" class="cursor-pointer">
+            <SunIcon
+                class="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 !transition-all dark:scale-0 dark:-rotate-90"
+            />
+            <MoonIcon
+                class="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 !transition-all dark:scale-100 dark:rotate-0"
+            />
+            </Button>
+            
             <div class="hidden md:flex items-center">
                 <div
                     class="relative"

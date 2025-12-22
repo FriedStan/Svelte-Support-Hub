@@ -3,6 +3,7 @@
     import CDNCard from "../lib/CDNCard/CDNCard.svelte";
     import ServicesData from "$lib/sevices_ex.json";
     import webFilterData from "$lib/web_filter_ex.json";
+    import LoginCard from "$lib/LoginCard.svelte";
     
     let selectedService: string[] = $state([]);
     let internalServices: { value: string; name: string }[] = ServicesData.services.map(
@@ -127,6 +128,10 @@
         </p>
     </div>
 </header>
+
+<div class="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900 gap-6">
+    <LoginCard />
+</div>
 
 <div class="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900 gap-6">
     <div class="w-full max-w-md p-6 bg-white rounded-lg shadow-md dark:bg-gray-800 dark:text-white">
