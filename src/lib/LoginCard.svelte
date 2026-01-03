@@ -37,30 +37,27 @@
      <Input class="h-12" id="username" type="text" placeholder="Username" bind:value={usernameValue} required />
     </div>
     <div class="grid gap-2">
-     <Input class="h-12" id="password" type={revealPassword ? 'text' : 'password'} placeholder="Password" bind:value={passwordValue} required />
-     <button
-        type="button"
-        title="Toggle Password Visibility"
-        tabindex={5}
-        class="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-neutral-400 transition-colors hover:text-neutral-500 disabled:cursor-not-allowed disabled:text-neutral-300"
-        onclick={() => {
-            if (passwordValue) {
-                revealPassword = !revealPassword;
-            }
-        }}
-    >
-        {#if revealPassword}
-            <EyeOff size="18" />
-        {:else}
-            <Eye size="18" />
-        {/if}
-    </button>
+        <div class="relative">
+            <Input class="h-12" id="password" type={revealPassword ? 'text' : 'password'} placeholder="Password" bind:value={passwordValue} required />
+            <Button
+            type="button"
+            variant="ghost"
+            class="absolute right-0 top-0 h-full px-3 hover:bg-transparent"
+            onclick={() => (revealPassword = !revealPassword)}
+            >
+                {#if revealPassword}
+                    <EyeOff class="h-4 w-4 text-muted-foreground" />
+                {:else}
+                    <Eye class="h-4 w-4 text-muted-foreground" />
+                {/if}
+                <span class="sr-only">Toggle password visibility</span>
+            </Button>
+        </div>
     </div>
    </div>
   </form>
  </Card.Content>
  <Card.Footer class="flex-col gap-2">
   <Button type="submit" class="w-full" onclick={handleLogin}>Login</Button>
-  <Button variant="outline" class="w-full">Login with Google</Button>
  </Card.Footer>
 </Card.Root>
